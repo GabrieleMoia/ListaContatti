@@ -5,4 +5,5 @@ package com.example.giulia.contactlist;
  */
 
 public class DatabaseHelper {
+
 }
