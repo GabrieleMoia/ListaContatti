@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">ContactList</string>
+    <string name="app_name">InflateList</string>
+    <string name="add"> List </string>
+    <string name="alert_ok">OK</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="detail_name"> Nome </string>
+    <string name="detail_number">Number</string>
+    <string name="detail_button_value"> Preferito</string>
+    <string name="secret_edit_name">Name</string>
+    <string name="secret_edit_number">Number</string>
+    <string name="secret_button_value">Salva</string>
 </resources>

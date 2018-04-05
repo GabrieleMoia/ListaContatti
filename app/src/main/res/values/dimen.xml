@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin"> 16dp </dimen> //con questo creo una dimensione che posso utilizzare in tutti i file
+    <dimen name="activity_horizontal_margin"> 16dp </dimen> //con questo creo una dimensione che posso utilizzare in tutti i file
+    <dimen name="detail_top_name">60dp</dimen>
+    <dimen name="detail_top_number">140dp</dimen>
+    <dimen name="detail_size_name_number">30dp</dimen>
+    <dimen name="detail_top_button">250dp</dimen>
+    <dimen name="item_layout_width_heigth_marginRight">50dp</dimen>
+    <dimen name="item_marginTop_marginLeft_padding">5dp</dimen>
+    <dimen name="item_size_name_number">15dp</dimen>
+    <dimen name="secret_marginTop_name">30dp</dimen>
+    <dimen name="secret_marginTop_number">120dp</dimen>
+    <dimen name="secret_size_name_number">25dp</dimen>
+    <dimen name="secret_button_marginTop">250dp</dimen>
+    <dimen name="secret_text_name_number">35dp</dimen>
+</resources>
