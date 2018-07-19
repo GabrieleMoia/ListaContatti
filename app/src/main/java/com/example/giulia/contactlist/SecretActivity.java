@@ -23,9 +23,11 @@ public class SecretActivity extends AppCompatActivity {
 
         final EditText name = findViewById(R.id.editName);
         final EditText number = findViewById(R.id.editNumber);
+        final EditText password = findViewById(R.id.editPassword);
 
         name.setText("");
         number.setText("");
+        password.setText("");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,10 +37,12 @@ public class SecretActivity extends AppCompatActivity {
 
                 String nameResult = name.getText().toString();
                 String numberResult = number.getText().toString();
+                String pswResult = password.getText().toString();
 
 
                 resultIntent.putExtra("name", nameResult);
                 resultIntent.putExtra("number", numberResult);
+                resultIntent.putExtra("password", pswResult);
 
 
                 setResult(2, resultIntent);

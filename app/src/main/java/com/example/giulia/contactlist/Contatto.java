@@ -9,32 +9,38 @@ import android.os.Parcelable;
  */
 
 public class Contatto {
-    String nome;
-    String numero;
+    private String descrizione;
+    private String username;
+    private String password;
 
-    public Contatto(String nome, String numero) {
-        this.nome = nome;
-        this.numero = numero;
+    public Contatto(String descrizione, String username, String password) {
+        this.descrizione = descrizione;
+        this.username = username;
+        this.password = password;
     }
 
-
-    public String getNumero() {
-        return numero;
+    public String getDescrizione() {
+        return descrizione;
     }
 
-    public String getNome() {
-
-        return nome;
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
 

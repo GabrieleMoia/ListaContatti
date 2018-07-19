@@ -11,6 +11,7 @@
     <dimen name="item_size_name_number">15dp</dimen>
     <dimen name="secret_marginTop_name">30dp</dimen>
     <dimen name="secret_marginTop_number">120dp</dimen>
+    <dimen name="secret_marginTop_password">200dp</dimen>
     <dimen name="secret_size_name_number">25dp</dimen>
     <dimen name="secret_button_marginTop">250dp</dimen>
     <dimen name="secret_text_name_number">35dp</dimen>

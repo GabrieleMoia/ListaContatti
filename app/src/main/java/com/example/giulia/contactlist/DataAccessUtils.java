@@ -17,9 +17,7 @@ public class DataAccessUtils {
     public static void initDataSource(Context context) {
         List<Contatto> contattoList = new ArrayList<Contatto>();
 
-        contattoList.add(new Contatto("Gabriele", "3931943822"));
-        contattoList.add(new Contatto("Mamma", "3383713708"));
-        contattoList.add(new Contatto("Papà", "3383764074"));
+        contattoList.add(new Contatto("Gabriele", "gabriele.moia@icloud.com", "Settimo"));
         Singleton.getInstance().setItemList(contattoList);
     }
 

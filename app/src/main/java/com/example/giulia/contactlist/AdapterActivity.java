@@ -49,6 +49,7 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
             viewHolder = new ViewHolder();
             viewHolder.nameHolder = (TextView) convertView.findViewById(R.id.nome);
             viewHolder.numberHolder = (TextView) convertView.findViewById(R.id.numero);
+            viewHolder.pswHolder = (TextView) convertView.findViewById(R.id.password);
             viewHolder.imageHolder = (ImageView) convertView.findViewById(R.id.logo);
             viewHolder.starHolder = (ImageView) convertView.findViewById(R.id.star);
             convertView.setTag(viewHolder);
@@ -57,12 +58,13 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
         }
 
         Contatto contatto = DataAccessUtils.getItemByPosition(this.context, position);
-        viewHolder.nameHolder.setText(contatto.getNome());
-        viewHolder.numberHolder.setText(contatto.getNumero());
+        viewHolder.nameHolder.setText(contatto.getDescrizione());
+        viewHolder.numberHolder.setText(contatto.getUsername());
+        viewHolder.pswHolder.setText(contatto.getPassword());
         viewHolder.imageHolder.setBackgroundColor(getColorForPosition(this.context, position));
         //Recupero il valore della mia preference e setto la stella visibile se corrispondono i numeri di cellulare
         String favourite = DataAccessUtils.getOnSharedPreferences(context);
-        if (!favourite.equals(null) && favourite.equals(contatto.getNumero())) {
+        if (!favourite.equals(null) && favourite.equals(contatto.getUsername())) {
             viewHolder.starHolder.setVisibility(View.VISIBLE);
         } else {
             viewHolder.starHolder.setVisibility(View.INVISIBLE);
@@ -75,6 +77,7 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
     public class ViewHolder {
         private TextView nameHolder;
         private TextView numberHolder;
+        private TextView pswHolder;
         private ImageView imageHolder;
         private ImageView starHolder;
     }
@@ -90,47 +93,5 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
         return contactlist.size();
 
     }
-
-
-    //getfavourites delle shall preferences if(!=null && =numero di telefono)
-    //setVisible sulla stellina visible
-    //starImage.setVisibility(View.VISIBLE)
-    //GONE
-
-
-        /*View rowView = inflater.inflate(R.layout.linear_item, parent,false); //convertire un xml in una view
-
-        //set label
-        TextView nameView = (TextView) rowView.findViewById(R.id.nome);
-        String itemName = this.contactlist.get(position).getNome();
-        nameView.setText(itemName);
-
-        TextView numberView = (TextView) rowView.findViewById(R.id.number);
-        String itemNumber = this.contactlist.get(position).getNumero();
-        numberView.setText(itemNumber);
-
-        // Set icon di defualt
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-        imageView.setImageResource(R.drawable.ic_fruit);
-
-        /*String url="ic_"+itemName.toLowerCase();
-        //per prendere le immagini corrispondenti ad ogni nome del frutto
-        if(!TextUtils.isEmpty(url))
-        {
-            //uso il try perchè non sono sicruo di avere tutte le immagini
-            try {
-                int imageResource = context.getResources().getIdentifier(url, "drawable", getContext().getPackageName());
-
-                Drawable image = context.getResources().getDrawable(imageResource,null);
-                imageView.setImageDrawable(image);
-            }
-            catch(Exception e){}
-
-        }
-
-        return rowView;
-    }*/
-
-
 }
 

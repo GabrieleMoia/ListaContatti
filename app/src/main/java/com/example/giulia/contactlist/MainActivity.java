@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listView);
 
         listView.setAdapter(adapter);
-        setTitle("Rubrica");
+        setTitle("Codici");
 
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -77,27 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent det = new Intent(MainActivity.this, DetailActivity.class); //Far partire un'altra applicazione
-
-                Contatto cont = DataAccessUtils.getItemByPosition(getApplicationContext(), position);
-
-                String name = cont.getNome();
-                String number = cont.getNumero();
-
-
-                det.putExtra("nome", name);
-                det.putExtra("numero", number);
-
-                startActivity(det);
-            }
-        });
-
 
     }
 
@@ -141,8 +120,9 @@ public class MainActivity extends AppCompatActivity {
 
             String nameResult = (String) data.getExtras().getString("name");
             String numberResult = (String) data.getExtras().getString("number");
+            String passwordResult = (String) data.getExtras().getString("password");
 
-            Contatto contactResult = new Contatto(nameResult, numberResult);
+            Contatto contactResult = new Contatto(nameResult, numberResult, passwordResult );
 
             DataAccessUtils.addItem(contactResult, getApplicationContext());
             adapter.setValues();
