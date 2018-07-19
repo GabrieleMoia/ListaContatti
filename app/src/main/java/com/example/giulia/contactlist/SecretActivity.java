@@ -21,11 +21,10 @@ public class SecretActivity extends AppCompatActivity {
         setTitle("Aggiungi Contatto");
         final Button button = findViewById(R.id.confirm);
 
-        final EditText name = findViewById(R.id.editName);
-        final EditText number = findViewById(R.id.editNumber);
+        final EditText description = findViewById(R.id.editDescription);
+        final EditText username = findViewById(R.id.editUsername);
+        final EditText code = findViewById(R.id.editCode);
 
-        name.setText("");
-        number.setText("");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,12 +32,14 @@ public class SecretActivity extends AppCompatActivity {
 
                 Intent resultIntent = new Intent(SecretActivity.this, MainActivity.class);
 
-                String nameResult = name.getText().toString();
-                String numberResult = number.getText().toString();
+                String descriptionResult = description.getText().toString();
+                String usernameResult = username.getText().toString();
+                String codeResult = code.getText().toString();
 
 
-                resultIntent.putExtra("name", nameResult);
-                resultIntent.putExtra("number", numberResult);
+                resultIntent.putExtra("description", descriptionResult);
+                resultIntent.putExtra("username", usernameResult);
+                resultIntent.putExtra("code", codeResult);
 
 
                 setResult(2, resultIntent);
@@ -47,11 +48,5 @@ public class SecretActivity extends AppCompatActivity {
 
             }
         });
-
-            /*Intent i=getIntent();
-            String txt=i.getStringExtra("text");
-
-            TextView txv=(TextView) findViewById(R.id.textName);
-            txv.setText(txt);*/
     }
 }

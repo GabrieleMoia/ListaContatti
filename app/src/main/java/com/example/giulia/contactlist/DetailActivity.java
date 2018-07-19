@@ -34,7 +34,7 @@ public class DetailActivity extends AppCompatActivity {
         name_rec.setText(name);
         num_rec.setText(number);
 
-        back.setOnClickListener(new View.OnClickListener() { //si fa il setvaluepreferences
+        /*back.setOnClickListener(new View.OnClickListener() { //si fa il setvaluepreferences
             @Override
             public void onClick(View v) {
 
@@ -42,7 +42,7 @@ public class DetailActivity extends AppCompatActivity {
                 DataAccessUtils.getOnSharedPreferences(DetailActivity.this);
                 finish();
             }
-        });
+        });*/
 
 
     }

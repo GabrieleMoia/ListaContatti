@@ -17,16 +17,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.giulia.contactlist.DataAccessUtils.getColorForPosition;
-
 /**
  * Created by Giulia on 01/02/2018.
  */
 
-public class AdapterActivity extends ArrayAdapter<Contatto> {
+public class AdapterActivity extends ArrayAdapter<Nota> {
 
     private final Context context;
-    private List<Contatto> contactlist = new ArrayList<>();
     ItemDatabaseManager itemDatabaseManager;
 
     //costruttore
@@ -52,18 +49,17 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.linear_item, null);
             viewHolder = new ViewHolder();
-            viewHolder.nameHolder = (TextView) convertView.findViewById(R.id.nome);
-            viewHolder.numberHolder = (TextView) convertView.findViewById(R.id.numero);
-            viewHolder.imageHolder = (ImageView) convertView.findViewById(R.id.logo);
-            viewHolder.starHolder = (ImageView) convertView.findViewById(R.id.star);
+            viewHolder.descriptionHolder = (TextView) convertView.findViewById(R.id.descrizione);
+            viewHolder.usernameHolder = (TextView) convertView.findViewById(R.id.username);
+            viewHolder.codeHolder = (TextView) convertView.findViewById(R.id.code);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.nameHolder.setText(contactlist.get(position).getNome());
-        viewHolder.numberHolder.setText(contactlist.get(position).getNumero());
-        viewHolder.imageHolder.setBackgroundColor(getColorForPosition(this.context, position));
+        viewHolder.descriptionHolder.setText(DataAccessUtils.getItemByPosition(this.context, position).getDescrizione());
+        viewHolder.usernameHolder.setText(DataAccessUtils.getItemByPosition(this.context, position).getUsername());
+        viewHolder.codeHolder.setText(DataAccessUtils.getItemByPosition(this.context, position).getCode());
         return convertView;
     }
 
@@ -79,21 +75,21 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
         if (index > 0) {
             int i = 0;
             do {
-                Contatto contatto = new Contatto(cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_ID)),
-                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_NAME)),
-                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_NUMBER)));
+                Nota nota = new Nota(
+                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_DESCRIPTION)),
+                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_USERNAME)),
+                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_CODE)));
                 i++;
+                DataAccessUtils.addItem(nota,context);
                 cursor.moveToNext();
-                this.contactlist.add(contatto);
             } while (i < index);
         }
     }
 
     public class ViewHolder {
-        private TextView nameHolder;
-        private TextView numberHolder;
-        private ImageView imageHolder;
-        private ImageView starHolder;
+        private TextView descriptionHolder;
+        private TextView usernameHolder;
+        private TextView codeHolder;
     }
 
 
@@ -104,7 +100,7 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
 
     @Override
     public int getCount() {
-        return contactlist.size();
+        return Singleton.getInstance().getItemList().size();
 
     }
 

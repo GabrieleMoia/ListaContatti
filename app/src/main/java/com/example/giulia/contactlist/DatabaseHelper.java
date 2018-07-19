@@ -15,9 +15,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_CREATE_ITEM =
             "CREATE TABLE items(" +
-                    ItemDatabaseManager.KEY_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-                    ItemDatabaseManager.KEY_NAME + " TEXT, " +
-                    ItemDatabaseManager.KEY_NUMBER + " TEXT " +
+                    ItemDatabaseManager.KEY_DESCRIPTION + " TEXT, " +
+                    ItemDatabaseManager.KEY_USERNAME + " TEXT, " +
+                    ItemDatabaseManager.KEY_CODE + " TEXT " +
                     ");";
 
     public DatabaseHelper(Context context) {

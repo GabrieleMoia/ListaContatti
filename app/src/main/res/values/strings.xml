@@ -6,7 +6,9 @@
     <string name="detail_name"> Nome </string>
     <string name="detail_number">Number</string>
     <string name="detail_button_value"> Preferito</string>
-    <string name="secret_edit_name">Name</string>
+    <string name="secret_edit_name">Inserisci lo username</string>
+    <string name="secret_edit_code">Inserisci la password</string>
+    <string name="secret_edit_description">Inserisci la descrizione</string>
     <string name="secret_edit_number">Number</string>
     <string name="secret_button_value">Salva</string>
 </resources>

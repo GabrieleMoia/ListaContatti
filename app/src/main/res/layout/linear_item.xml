@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="@dimen/item_marginTop_marginLeft_padding"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="@dimen/item_marginTop_marginLeft_padding">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/item_marginTop_marginLeft_padding"
-            android:layout_marginRight="@dimen/item_layout_width_heigth_marginRight"
-            android:layout_marginTop="@dimen/item_marginTop_marginLeft_padding" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -22,27 +14,27 @@
         android:padding="@dimen/item_marginTop_marginLeft_padding">
 
         <TextView
-            android:id="@+id/nome"
+            android:id="@+id/descrizione"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contatto"
+            android:text="Descrizione"
             android:textSize="@dimen/item_size_name_number"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/numero"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="numero"
+            android:text="username"
             android:textSize="@dimen/item_size_name_number"
             android:textStyle="normal" />
 
-        <ImageView
-            android:id="@+id/star"
+        <TextView
+            android:id="@+id/code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_star"
-            android:visibility="invisible" />
-
+            android:text="code"
+            android:textSize="@dimen/item_size_name_number"
+            android:textStyle="normal" />
     </LinearLayout>
 </LinearLayout>

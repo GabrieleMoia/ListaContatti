@@ -1,5 +1,7 @@
 package com.example.giulia.contactlist;
 
+import android.content.ClipData;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -63,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //cose
+                        Nota contatto = Singleton.getInstance().getItemList().get(position);
                         DataAccessUtils.removeItem(Singleton.getInstance().getItemList().get(position), getApplicationContext());
+                        ItemDatabaseManager itemDatabaseManager = new ItemDatabaseManager(getApplicationContext());
+                        //Boolean cursor = itemDatabaseManager.updateItem(contatto);
+                        //adapter.updateList(getApplicationContext());
                         adapter.setValues();
                     }
                 });
@@ -86,14 +92,16 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent det = new Intent(MainActivity.this, DetailActivity.class); //Far partire un'altra applicazione
 
-                Contatto cont = DataAccessUtils.getItemByPosition(getApplicationContext(), position);
+                Nota cont = DataAccessUtils.getItemByPosition(getApplicationContext(), position);
 
-                String name = cont.getNome();
-                String number = cont.getNumero();
+                String description = cont.getDescrizione();
+                String username = cont.getUsername();
+                String code = cont.getCode();
 
 
-                det.putExtra("nome", name);
-                det.putExtra("numero", number);
+                det.putExtra("description", description);
+                det.putExtra("username", username);
+                det.putExtra("code", code);
 
                 startActivity(det);
             }
@@ -128,26 +136,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    //Apparizione del toast (label con quello che ho schiacciato)
-
-
-    /*Toast.makeText(getApplicationContext(), t.getText(), Toast.LENGTH_SHORT).show();*/
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 2) {
 
-            String nameResult = (String) data.getExtras().getString("name");
-            String numberResult = (String) data.getExtras().getString("number");
+            String descriptionResult = (String) data.getExtras().getString("description");
+            String usernameResult = (String) data.getExtras().getString("username");
+            String codeResult = (String) data.getExtras().getString("code");
 
+            Nota nota = new Nota(descriptionResult, usernameResult, codeResult);
+            DataAccessUtils.addItem(nota, getApplicationContext());
             ItemDatabaseManager itemDatabaseManager = new ItemDatabaseManager(this);
             itemDatabaseManager.open();
-            Long cursor = itemDatabaseManager.createItem(nameResult, numberResult);
+            Long cursor = itemDatabaseManager.createItem(descriptionResult, usernameResult, codeResult);
             Log.d("cursor", cursor.toString());
-            adapter.updateList(getApplicationContext());
+            adapter.setValues();
         }
     }
 
