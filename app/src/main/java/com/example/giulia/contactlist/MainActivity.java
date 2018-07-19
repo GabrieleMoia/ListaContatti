@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
             itemDatabaseManager.open();
             Long cursor = itemDatabaseManager.createItem(descriptionResult, usernameResult, codeResult);
             Log.d("cursor", cursor.toString());
+            itemDatabaseManager.close();
             adapter.setValues();
         }
     }

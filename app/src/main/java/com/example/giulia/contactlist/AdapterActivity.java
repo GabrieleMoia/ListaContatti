@@ -84,6 +84,7 @@ public class AdapterActivity extends ArrayAdapter<Nota> {
                 cursor.moveToNext();
             } while (i < index);
         }
+        itemDatabaseManager.close();
     }
 
     public class ViewHolder {
