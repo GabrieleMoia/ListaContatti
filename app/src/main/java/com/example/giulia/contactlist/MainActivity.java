@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listView);
 
         listView.setAdapter(adapter);
-        setTitle("Rubrica");
+        setTitle("Note");
 
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

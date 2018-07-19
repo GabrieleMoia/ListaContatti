@@ -18,7 +18,7 @@ public class SecretActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.secretactivity);
-        setTitle("Aggiungi Contatto");
+        setTitle("Aggiungi Nota");
         final Button button = findViewById(R.id.confirm);
 
         final EditText description = findViewById(R.id.editDescription);
@@ -49,4 +49,11 @@ public class SecretActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }
