@@ -9,14 +9,22 @@ import android.os.Parcelable;
  */
 
 public class Contatto {
+    String id;
     String nome;
     String numero;
 
-    public Contatto(String nome, String numero) {
+    public Contatto(String id, String nome, String numero) {
         this.nome = nome;
         this.numero = numero;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getNumero() {
         return numero;

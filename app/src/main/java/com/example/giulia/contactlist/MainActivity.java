@@ -8,6 +8,7 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         DataAccessUtils.initDataSource(this);
-        adapter = new AdapterActivity(this, DataAccessUtils.getDataSourceItemList(getApplicationContext()));
+        adapter = new AdapterActivity(getApplicationContext());
 
         ListView listView = (ListView) findViewById(R.id.listView);
 
@@ -142,10 +143,11 @@ public class MainActivity extends AppCompatActivity {
             String nameResult = (String) data.getExtras().getString("name");
             String numberResult = (String) data.getExtras().getString("number");
 
-            Contatto contactResult = new Contatto(nameResult, numberResult);
-
-            DataAccessUtils.addItem(contactResult, getApplicationContext());
-            adapter.setValues();
+            ItemDatabaseManager itemDatabaseManager = new ItemDatabaseManager(this);
+            itemDatabaseManager.open();
+            Long cursor = itemDatabaseManager.createItem(nameResult, numberResult);
+            Log.d("cursor", cursor.toString());
+            adapter.updateList(getApplicationContext());
         }
     }
 

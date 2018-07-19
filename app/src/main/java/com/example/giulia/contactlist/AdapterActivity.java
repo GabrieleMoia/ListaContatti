@@ -1,9 +1,12 @@
 package com.example.giulia.contactlist;
 
 import android.annotation.TargetApi;
+import android.content.ClipData;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.giulia.contactlist.DataAccessUtils.getColorForPosition;
@@ -22,14 +26,15 @@ import static com.example.giulia.contactlist.DataAccessUtils.getColorForPosition
 public class AdapterActivity extends ArrayAdapter<Contatto> {
 
     private final Context context;
-    private List<Contatto> contactlist;
+    private List<Contatto> contactlist = new ArrayList<>();
+    ItemDatabaseManager itemDatabaseManager;
 
     //costruttore
-    public AdapterActivity(Context context, List<Contatto> contactlist) {
+    public AdapterActivity(Context context) {
 
-        super(context, R.layout.linear_item, contactlist);
-        this.contactlist = contactlist;
+        super(context, R.layout.linear_item);
         this.context = context;
+        this.updateList(context);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -56,21 +61,33 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Contatto contatto = DataAccessUtils.getItemByPosition(this.context, position);
-        viewHolder.nameHolder.setText(contatto.getNome());
-        viewHolder.numberHolder.setText(contatto.getNumero());
+        viewHolder.nameHolder.setText(contactlist.get(position).getNome());
+        viewHolder.numberHolder.setText(contactlist.get(position).getNumero());
         viewHolder.imageHolder.setBackgroundColor(getColorForPosition(this.context, position));
-        //Recupero il valore della mia preference e setto la stella visibile se corrispondono i numeri di cellulare
-        String favourite = DataAccessUtils.getOnSharedPreferences(context);
-        if (!favourite.equals(null) && favourite.equals(contatto.getNumero())) {
-            viewHolder.starHolder.setVisibility(View.VISIBLE);
-        } else {
-            viewHolder.starHolder.setVisibility(View.INVISIBLE);
-        }
-
         return convertView;
     }
 
+
+    public void updateList(Context context) {
+
+        itemDatabaseManager = new ItemDatabaseManager(context);
+        itemDatabaseManager.open();
+        Cursor cursor = itemDatabaseManager.fetchAllItems();
+        cursor.moveToFirst();
+        int index = cursor.getCount();
+
+        if (index > 0) {
+            int i = 0;
+            do {
+                Contatto contatto = new Contatto(cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_ID)),
+                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_NAME)),
+                        cursor.getString(cursor.getColumnIndex(itemDatabaseManager.KEY_NUMBER)));
+                i++;
+                cursor.moveToNext();
+                this.contactlist.add(contatto);
+            } while (i < index);
+        }
+    }
 
     public class ViewHolder {
         private TextView nameHolder;
@@ -90,47 +107,6 @@ public class AdapterActivity extends ArrayAdapter<Contatto> {
         return contactlist.size();
 
     }
-
-
-    //getfavourites delle shall preferences if(!=null && =numero di telefono)
-    //setVisible sulla stellina visible
-    //starImage.setVisibility(View.VISIBLE)
-    //GONE
-
-
-        /*View rowView = inflater.inflate(R.layout.linear_item, parent,false); //convertire un xml in una view
-
-        //set label
-        TextView nameView = (TextView) rowView.findViewById(R.id.nome);
-        String itemName = this.contactlist.get(position).getNome();
-        nameView.setText(itemName);
-
-        TextView numberView = (TextView) rowView.findViewById(R.id.number);
-        String itemNumber = this.contactlist.get(position).getNumero();
-        numberView.setText(itemNumber);
-
-        // Set icon di defualt
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-        imageView.setImageResource(R.drawable.ic_fruit);
-
-        /*String url="ic_"+itemName.toLowerCase();
-        //per prendere le immagini corrispondenti ad ogni nome del frutto
-        if(!TextUtils.isEmpty(url))
-        {
-            //uso il try perchè non sono sicruo di avere tutte le immagini
-            try {
-                int imageResource = context.getResources().getIdentifier(url, "drawable", getContext().getPackageName());
-
-                Drawable image = context.getResources().getDrawable(imageResource,null);
-                imageView.setImageDrawable(image);
-            }
-            catch(Exception e){}
-
-        }
-
-        return rowView;
-    }*/
-
 
 }
 
