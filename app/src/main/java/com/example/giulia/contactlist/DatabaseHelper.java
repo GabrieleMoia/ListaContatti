@@ -22,9 +22,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_CREATE_CODE =
             "CREATE TABLE codes(" +
-                    CodeDatabaseManager.KEY_ACCESS_CODE + " TEXT, " +
-                    CodeDatabaseManager.KEY_BOOLEAN_ACESS + " BOOLEAN " +
+                    CodeDatabaseManager.KEY_ACCESS_CODE + " TEXT " +
                     ");";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

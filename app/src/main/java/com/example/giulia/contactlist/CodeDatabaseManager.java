@@ -14,7 +14,6 @@ public class CodeDatabaseManager {
 
     public static final String DATABASE_TABLE = "codes";
     public static final String KEY_ACCESS_CODE = "access_code";
-    public static final String KEY_BOOLEAN_ACESS = "boolean_acess";
 
     public CodeDatabaseManager(Context context) {
         this.context = context;
@@ -30,15 +29,14 @@ public class CodeDatabaseManager {
         databaseHelper.close();
     }
 
-    private ContentValues createContentValues(String access_code, Boolean boolean_access) {
+    private ContentValues createContentValues(String access_code) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_ACCESS_CODE, access_code);
-        contentValues.put(KEY_BOOLEAN_ACESS, boolean_access);
         return contentValues;
     }
 
-    public long createItem(String access_code, Boolean boolean_access) {
-        ContentValues initialValues = createContentValues(access_code, boolean_access);
+    public long createItem(String access_code) {
+        ContentValues initialValues = createContentValues(access_code);
         return database.insertOrThrow(DATABASE_TABLE, null, initialValues);
     }
 

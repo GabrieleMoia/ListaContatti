@@ -15,7 +15,7 @@ import java.util.List;
 public class DataAccessUtils {
 
     public static void initDataSource(Context context) {
-        List<Nota> notes = new ArrayList<>();
+        List<Nota> notes = new ArrayList<Nota>();
         Singleton.getInstance().setItemList(notes);
     }
 
@@ -36,23 +36,25 @@ public class DataAccessUtils {
         return contByPos;
     }
 
-    /*//Metodi per scrivere nella shared preferences
-    public static void writeOnSharedPreferences(String number, Context context) {
+    //Metodi per scrivere nella shared preferences
+    public static void writeOnSharedPreferences(Boolean access_boolean, Context context) {
         //dichiarazione shared preferences
-        SharedPreferences sharedPreferences = context.getSharedPreferences("favourite", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("access_boolean", Context.MODE_PRIVATE);
         //dichiarazione edit dove scrivo la chiave e il valore corrispondente
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("preferito", number);
+        editor.putBoolean("access_boolean", access_boolean);
         editor.commit();
     }
 
-    public static String getOnSharedPreferences(Context context) {
+    public static Boolean getOnSharedPreferences(Context context) {
 
         //recupero dell chiave
-        SharedPreferences sharedPreferences = context.getSharedPreferences("favourite", Context.MODE_PRIVATE);
-        String favourite = sharedPreferences.getString("preferito", "DEFAULT");
-        return favourite;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("access_boolean", Context.MODE_PRIVATE);
+        Boolean accessBoolean = sharedPreferences.getBoolean("access_boolean", false);
+        return accessBoolean;
     }
+
+
     //setFavouriteValueInPreferences (context, String favourite value)
     //getFavouriteValueInPreferences (context)*/
 }
