@@ -55,31 +55,25 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
-                //final TextView t = (TextView) view.findViewById(R.id.label);
+                AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                adb.setTitle("Remove");
+                adb.setMessage("Sei sciuro di rimuovere l'elemento");
 
-                AlertDialog.Builder adb1 = new AlertDialog.Builder(MainActivity.this);
-                adb1.setTitle("Remove");
-                adb1.setMessage("Sei sciuro di rimuovere l'elemento");
-
-                adb1.setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
+                adb.setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //cose
-                        Nota contatto = Singleton.getInstance().getItemList().get(position);
                         DataAccessUtils.removeItem(Singleton.getInstance().getItemList().get(position), getApplicationContext());
-                        ItemDatabaseManager itemDatabaseManager = new ItemDatabaseManager(getApplicationContext());
-                        //Boolean cursor = itemDatabaseManager.updateItem(contatto);
-                        //adapter.updateList(getApplicationContext());
                         adapter.setValues();
                     }
                 });
-                adb1.setNegativeButton(R.string.alert_cancel, new DialogInterface.OnClickListener() {
+                adb.setNegativeButton(R.string.alert_cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
-                adb1.show();
+                adb.show();
                 return true;
 
             }
@@ -106,8 +100,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(det);
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 
     //Metodo per refreshare la view

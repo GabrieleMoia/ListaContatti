@@ -10,49 +10,188 @@
         android:background="#fff">
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="69dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:src="@drawable/login_logo" />
 
-        <RelativeLayout
-            android:layout_width="350dp"
+        <TextView
+            android:id="@+id/first_tutorial"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:orientation="horizontal">
+            android:layout_marginTop="102dp"
+            android:text="Accedi inserendo un codice a 4 cifre." />
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/lock" />
+        <TextView
+            android:id="@+id/second_tutorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first_tutorial"
+            android:layout_centerHorizontal="true"
+            android:text="Sarà il tuo pin di accesso all'applicazione" />
 
-            <EditText
-                android:id="@+id/editCode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:hint="****"
-                android:inputType="numberPassword"
-                android:maxLength="4"
-                android:textColor="@color/edittext_selector"
-                android:textSize="15dp" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/textCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="170dp"
+            android:gravity="center"
+            android:hint="****"
+            android:inputType="numberPassword"
+            android:maxLength="4"
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:textSize="25dp" />
 
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textCode"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/textCode"
+            android:layout_marginRight="78dp"
+            android:onClick="back"
+            android:src="@drawable/back" />
 
-        <Button
-            android:id="@+id/confirm"
-            android:layout_width="150dp"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/access_button"
-            android:text="Accedi" />
+            android:layout_marginBottom="25dp">
+
+            <Button
+                android:id="@+id/b1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="78dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="1"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="2"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="78dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="3"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b1"
+                android:layout_alignStart="@+id/b1"
+                android:layout_marginTop="75dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="4"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b2"
+                android:layout_alignStart="@+id/b2"
+                android:layout_marginTop="75dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="5"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b3"
+                android:layout_alignStart="@+id/b3"
+                android:layout_marginTop="75dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="6"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b4"
+                android:layout_alignStart="@+id/b4"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="7"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b5"
+                android:layout_alignStart="@+id/b5"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="8"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b6"
+                android:layout_alignStart="@+id/b6"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="9"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/b0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/b8"
+                android:layout_alignStart="@+id/b8"
+                android:layout_marginTop="225dp"
+                android:background="@drawable/input_button"
+                android:onClick="access"
+                android:text="0"
+                android:textColor="#89C839"
+                android:textSize="25dp" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
