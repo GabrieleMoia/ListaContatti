@@ -4,42 +4,54 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff">
+        android:background="#fff"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="69dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/login_logo" />
-
-        <TextView
-            android:id="@+id/first_tutorial"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="102dp"
-            android:text="Accedi inserendo un codice a 4 cifre." />
+            android:layout_marginTop="25dp">
 
-        <TextView
-            android:id="@+id/second_tutorial"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="69dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/login_logo" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/first_tutorial"
-            android:layout_centerHorizontal="true"
-            android:text="Sarà il tuo pin di accesso all'applicazione" />
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:id="@+id/first_tutorial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Accedi inserendo un codice a 4 cifre." />
+
+            <TextView
+                android:id="@+id/second_tutorial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/first_tutorial"
+                android:layout_centerHorizontal="true"
+                android:text="Sarà il tuo pin di accesso all'applicazione" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/textCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:hint="****"
             android:inputType="numberPassword"
@@ -48,151 +60,169 @@
             android:textColorHint="#000"
             android:textSize="25dp" />
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textCode"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textCode"
-            android:layout_marginRight="78dp"
-            android:onClick="back"
-            android:src="@drawable/back" />
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="25dp">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/b1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="78dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="1"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
 
-            <Button
-                android:id="@+id/b2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="2"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="60dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="1"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="78dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="3"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="2"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b1"
-                android:layout_alignStart="@+id/b1"
-                android:layout_marginTop="75dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="4"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="3"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b2"
-                android:layout_alignStart="@+id/b2"
-                android:layout_marginTop="75dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="5"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b1"
+                    android:layout_alignStart="@+id/b1"
+                    android:layout_marginTop="75dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="4"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b3"
-                android:layout_alignStart="@+id/b3"
-                android:layout_marginTop="75dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="6"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b2"
+                    android:layout_alignStart="@+id/b2"
+                    android:layout_marginTop="75dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="5"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b7"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b4"
-                android:layout_alignStart="@+id/b4"
-                android:layout_marginTop="150dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="7"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b6"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b3"
+                    android:layout_alignStart="@+id/b3"
+                    android:layout_marginTop="75dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="6"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b8"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b5"
-                android:layout_alignStart="@+id/b5"
-                android:layout_marginTop="150dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="8"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b7"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b4"
+                    android:layout_alignStart="@+id/b4"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="7"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b9"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b6"
-                android:layout_alignStart="@+id/b6"
-                android:layout_marginTop="150dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="9"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b8"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b5"
+                    android:layout_alignStart="@+id/b5"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="8"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/b0"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/b8"
-                android:layout_alignStart="@+id/b8"
-                android:layout_marginTop="225dp"
-                android:background="@drawable/input_button"
-                android:onClick="access"
-                android:text="0"
-                android:textColor="#89C839"
-                android:textSize="25dp" />
+                <Button
+                    android:id="@+id/b9"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b6"
+                    android:layout_alignStart="@+id/b6"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="9"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
+
+                <ImageButton
+                    android:id="@+id/view"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b7"
+                    android:layout_alignStart="@+id/b7"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="225dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="view"
+                    android:src="@drawable/view"
+                    android:textColor="#89C839" />
+
+                <Button
+                    android:id="@+id/b0"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b8"
+                    android:layout_alignStart="@+id/b8"
+                    android:layout_marginTop="225dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="access"
+                    android:text="0"
+                    android:textColor="#89C839"
+                    android:textSize="25dp" />
+
+                <ImageButton
+                    android:id="@+id/back"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/b9"
+                    android:layout_alignStart="@+id/b9"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="225dp"
+                    android:background="@drawable/input_button"
+                    android:onClick="back"
+                    android:src="@drawable/back"
+                    android:textColor="#89C839" />
+            </RelativeLayout>
         </RelativeLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </ScrollView>

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -85,6 +86,15 @@ public class AccessActivity extends AppCompatActivity {
         String code = textCode.getText().toString();
         if (code != null && code.length() > 0) {
             textCode.setText(code.substring(0, code.length() - 1));
+        }
+    }
+
+    public void view(View v) {
+        final TextView textCode = findViewById(R.id.textCode);
+        if (textCode.getInputType() == InputType.TYPE_CLASS_TEXT) {
+            textCode.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+        } else {
+            textCode.setInputType(InputType.TYPE_CLASS_TEXT);
         }
     }
 
