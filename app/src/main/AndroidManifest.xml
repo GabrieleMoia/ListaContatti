@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.INFO" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecretActivity">
+        <activity android:name=".AddActivity">
             <intent-filter>
                 <action android:name="android.intent.action.ASSIST" />
 

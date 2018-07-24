@@ -11,13 +11,13 @@ import android.widget.EditText;
  * Created by Giulia on 07/02/2018.
  */
 
-public class SecretActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.secretactivity);
+        setContentView(R.layout.add_activity);
         setTitle("Aggiungi Nota");
         final Button button = findViewById(R.id.confirm);
 
@@ -30,7 +30,7 @@ public class SecretActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent resultIntent = new Intent(SecretActivity.this, MainActivity.class);
+                Intent resultIntent = new Intent(AddActivity.this, MainActivity.class);
 
                 String descriptionResult = description.getText().toString();
                 String usernameResult = username.getText().toString();

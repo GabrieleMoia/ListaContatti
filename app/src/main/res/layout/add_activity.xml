@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/secretactivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.giulia.inflatelist.SecretActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="69dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/login_logo" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/description" />
+
+            <EditText
+                android:id="@+id/editDescription"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/secret_edit_description"
+                android:textSize="@dimen/secret_size_description_number" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/user" />
+
+            <EditText
+                android:id="@+id/editUsername"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/secret_edit_name"
+                android:textSize="@dimen/secret_size_description_number" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/key" />
+
+            <EditText
+                android:id="@+id/editCode"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/secret_edit_code"
+
+                android:textSize="@dimen/secret_size_description_number" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/input_button"
+                android:text="@string/secret_button_value"
+                android:textColor="#89C839" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
